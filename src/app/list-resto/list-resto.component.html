@@ -1,0 +1,37 @@
+<div class="text-center" *ngIf = "showSpinner">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div *ngIf = "!showSpinner">
+<h1>Restaurant Listing</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th  scope="col">Sr.no</th>
+      <th  scope="col">Name</th>
+      <th  scope="col">Email ID</th>
+      <th  scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of collection">
+      <th scope="row">{{item.id}}</th>
+      <!-- <td>{{item.id}}</td> -->
+      <td>{{item.name}}</td>
+      <!-- <td>{{item.rollNo}}</td> -->
+      <td>{{item.email}}</td>
+      <td>{{item.address}}</td>
+      <!-- <td>{{item.date}}</td>
+      <td>{{item.isMale}}</td> -->
+     <td>
+          <i (click)="deleteResto(item.id)" (click)="exit()" class="fa fa-trash" style="font-size:20px;"></i>{{" "}}
+          <i routerLink="/update/{{item.id}}" class="fa fa-edit" style="font-size:20px;"></i>
+     </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+</div>
